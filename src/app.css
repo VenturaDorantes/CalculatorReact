@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+    --bg-black: #22252D;
+    --bd-keys: #292d36; 
+    --txt-white: white;
+    --btn-shadow: #ffffff33;
+    --bd-btnIconDesactive: #6C757D;
+    --bd-btnIconActive: #ffffff;
+    /* --bg-black: white;
+    --bd-keys: #F8F9FA; 
+    --txt-white: black;
+    --btn-shadow: #00000033; */
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background-color: var(--bg-black);
+    width: 100%;
+    max-width: 375px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    -webkit-border-radius: 1.5rem;
+    -moz-border-radius: 1.5rem;
+    -ms-border-radius: 1.5rem;
+    -o-border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2);
+}

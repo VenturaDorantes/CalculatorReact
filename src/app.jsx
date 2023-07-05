@@ -1,6 +1,12 @@
+import './app.css'
+
 export function App() {
     return(
-        <h1>App de calculadora</h1>
+        <div className="app">
+            <div className="calculator">
+                
+            </div>
+        </div>
     )
 }
 
