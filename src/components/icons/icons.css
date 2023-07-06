@@ -1,0 +1,54 @@
+/* ---- Estilos para los botones de cambio de color ---- */
+.icons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.icons .btnIcon {
+    background-color: var(--bd-keys);
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.icons .btnIcon:hover {
+    transition: .2s;
+    box-shadow: inset 0px 0px 8px var(--btn-shadow);
+    -webkit-transition: .2s;
+    -moz-transition: .2s;
+    -ms-transition: .2s;
+    -o-transition: .2s;
+}
+
+.icons div:nth-child(1) {
+    border-radius: 15px 0px 0px 15px;
+    -webkit-border-radius: 15px 0px 0px 15px;
+    -moz-border-radius: 15px 0px 0px 15px;
+    -ms-border-radius: 15px 0px 0px 15px;
+    -o-border-radius: 15px 0px 0px 15px;
+}
+.icons div:nth-child(2) {
+    border-radius: 0px 15px 15px 0px;
+    -webkit-border-radius: 0px 15px 15px 0px;
+    -moz-border-radius: 0px 15px 15px 0px;
+    -ms-border-radius: 0px 15px 15px 0px;
+    -o-border-radius: 0px 15px 15px 0px;
+}
+
+.icons .btnIcon.active .color {
+    fill: var(--bd-btnIconActive);
+    stroke: var(--bd-btnIconActive);
+}
+
+.icons .btnIcon .color {
+    fill: var(--bd-btnIconDesactive);
+    stroke: var(--bd-btnIconDesactive);
+}
+
+.icons .btnIcon .color.moon {
+    stroke: none;
+}
+.icons .btnIcon .color.sun {
+    fill: none;    
+}
