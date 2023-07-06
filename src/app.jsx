@@ -83,7 +83,9 @@ export function App() {
                 setDisplayInput('')
                 setDisplayOutput('')
                 break
-            case '':
+            case 'backspace':
+                setInput(input.slice(0, -1))
+                setDisplayInput(cleanInput(input.slice(0, -1)))
                 break
             default:
                 if (validateInput(nameKey)){
