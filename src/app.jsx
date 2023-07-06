@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Icons from './components/icons/Icons';
 import IconSun from './components/icons/icon/IconSun';
 import IconMoon from './components/icons/icon/IconMoon';
+import Display from './components/display/Display';
 
 export function App() {
 
@@ -77,6 +78,7 @@ export function App() {
                     icons={ icons }
                     updateColorActive={ updateColorActive }
                 />
+                <Display />
             </div>
         </div>
     ) 
