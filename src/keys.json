@@ -1,0 +1,85 @@
+{
+    "keys":[
+        {
+            "dataKey" : "clear",
+            "class" : "action",
+            "spanText" : "AC"
+        },{
+            "dataKey" : "brackets",
+            "class" : "action",
+            "spanText" : "( )"
+        }, {
+            "dataKey" : "%",
+            "class" : "action",
+            "spanText" : "%"
+        }, {
+            "dataKey" : "/",
+            "class" : "operator",
+            "spanText" : "÷"
+        }, {
+            "dataKey" : "7",
+            "class" : "",
+            "spanText" : "7"
+        }, {
+            "dataKey" : "8",
+            "class" : "",
+            "spanText" : "8"
+        }, {
+            "dataKey" : "9",
+            "class" : "",
+            "spanText" : "9"
+        }, {
+            "dataKey" : "*",
+            "class" : "operator",
+            "spanText" : "x"
+        }, {
+            "dataKey" : "4",
+            "class" : "",
+            "spanText" : "4"
+        }, {
+            "dataKey" : "5",
+            "class" : "",
+            "spanText" : "5"
+        }, {
+            "dataKey" : "6",
+            "class" : "",
+            "spanText" : "6"
+        }, {
+            "dataKey" : "-",
+            "class" : "operator",
+            "spanText" : "-"
+        }, {
+            "dataKey" : "1",
+            "class" : "",
+            "spanText" : "1"
+        }, {
+            "dataKey" : "2",
+            "class" : "",
+            "spanText" : "2"
+        }, {
+            "dataKey" : "3",
+            "class" : "",
+            "spanText" : "3"
+        }, {
+            "dataKey" : "+",
+            "class" : "operator",
+            "spanText" : "+"
+        }, {
+            "dataKey" : "backspace",
+            "class" : "action",
+            "spanText" : "<"
+        }, {
+            "dataKey" : "0",
+            "class" : "",
+            "spanText" : "0"
+        }, {
+            "dataKey" : ".",
+            "class" : "",
+            "spanText" : "."
+        }, {
+            "dataKey" : "=",
+            "class" : "operator",
+            "spanText" : "="
+        }
+    ]
+}
