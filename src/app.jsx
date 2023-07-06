@@ -4,6 +4,8 @@ import Icons from './components/icons/Icons';
 import IconSun from './components/icons/icon/IconSun';
 import IconMoon from './components/icons/icon/IconMoon';
 import Display from './components/display/Display';
+import Keys from './keys.json'
+import Key from './components/key/Key'
 
 export function App() {
 
@@ -35,6 +37,10 @@ export function App() {
         ]
     )
 
+    const [keys, setKey] = useState(Keys.keys)
+
+    console.log(keys)
+
     const $styleColor = document.documentElement.style
     if(icons[0].active == true) {
         $styleColor.setProperty('--bg-black', 'white');
@@ -50,9 +56,6 @@ export function App() {
         $styleColor.setProperty('--bd-btnIconActive', '#ffffff');
         localStorage.setItem('pageColor', 'moon');
     }
-
-    console.log(icons)
-
 
     const updateColorActive = (nameIcon) => {
         
@@ -70,7 +73,6 @@ export function App() {
         localStorage.setItem('pageColor', nameIcon)
     }
 
-
     return(
         <div className="app">
             <div className="calculator">
@@ -79,6 +81,7 @@ export function App() {
                     updateColorActive={ updateColorActive }
                 />
                 <Display />
+                <Key data={ keys }/>
             </div>
         </div>
     ) 
