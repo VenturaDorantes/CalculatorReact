@@ -1,6 +1,7 @@
 const DisplayInput = (props) => {
+
     return (
-        <div className="input"> { props.operation } </div>
+        <div className="input" dangerouslySetInnerHTML={ { __html:  props.operation } }/>
     )
 }
 

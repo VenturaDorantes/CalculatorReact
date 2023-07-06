@@ -39,8 +39,6 @@ export function App() {
 
     const [keys, setKey] = useState(Keys.keys)
 
-    console.log(keys)
-
     const $styleColor = document.documentElement.style
     if(icons[0].active == true) {
         $styleColor.setProperty('--bg-black', 'white');
@@ -73,6 +71,75 @@ export function App() {
         localStorage.setItem('pageColor', nameIcon)
     }
 
+    const [ input, setInput ] = useState('')
+    const [ displayInput, setDisplayInput ] = useState('5 <span class="operator">+</span> 5')
+    const [ displayOutput, setDisplayOutput ] = useState('25')
+
+    const functionKey = (nameKey) => {
+
+        switch(nameKey){
+            case 'clear':
+                setInput('')
+                setDisplayInput('')
+                setDisplayOutput('')
+                break
+            case '':
+                break
+            default:
+                if (validateInput(nameKey)){
+                    setInput(input + nameKey)
+                    setDisplayInput(cleanInput(input + nameKey))
+                }
+                break
+        }
+    }
+
+    const cleanInput = (input) => {
+        let input_array = input.split('');
+        let input_array_length = input_array.length;
+
+        // Cambiando agregando un span en caso de precionar un boton del operador
+        for (let i = 0; i < input_array_length; i++) {
+        if (input_array[i] == '*') {
+            input_array[i] = ' <span class="operator">x</span> ';
+        } else if (input_array[i] == '/') {
+            input_array[i] = ' <span class="operator">÷</span> ';
+        } else if (input_array[i] == '+') {
+            input_array[i] = ' <span class="operator">+</span> ';
+        } else if (input_array[i] == '-') {
+            input_array[i] = ' <span class="operator">-</span> ';
+        } else if (input_array[i] == '(') {
+            input_array[i] = ' <span class="bracket">(</span> ';
+        } else if (input_array[i] == ')') {
+            input_array[i] = ' <span class="brecket">)</span> ';
+        } else if (input_array[i] == '%') {
+            input_array[i] == ' <span class="percent">%</span> ';
+        }
+    }
+        return input_array.join('') 
+        return <>{input}</>
+    }
+
+    // funcion para no poder agregar puntos y operadores despues de otro
+    const validateInput = (value) => {
+        let last_input = input.slice(-1);
+        let operators = ['+', '-', '*', '/'];
+
+        if(value == '.' && last_input == '.') {
+            return false
+        } 
+
+        if(value == '%' && last_input == '%' ) {
+            return false
+        } 
+
+        if(operators.includes(value)) {
+            return operators.includes(last_input) ? false : true
+        }
+        
+        return true;
+    }
+
     return(
         <div className="app">
             <div className="calculator">
@@ -80,8 +147,14 @@ export function App() {
                     icons={ icons }
                     updateColorActive={ updateColorActive }
                 />
-                <Display />
-                <Key data={ keys }/>
+                <Display 
+                    displayInput={ displayInput }
+                    displayOutput={ displayOutput }
+                />
+                <Key 
+                    data={ keys }
+                    functionKey={ functionKey }
+                />
             </div>
         </div>
     ) 

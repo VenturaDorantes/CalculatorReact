@@ -3,7 +3,7 @@ import KeyBottom from "./KeyButton"
 
 const Key = (props) => {
 
-    const { data } = props
+    const { data, functionKey } = props
 
     return (
         <div className="keys">
@@ -12,7 +12,8 @@ const Key = (props) => {
                     dataKey={ btn.dataKey } 
                     cssClass={ btn.class } 
                     spanText={ btn.spanText }
-                    key={ i }
+                    key={ btn.dataKey }
+                    functionKey= { functionKey }
                 />
             )}
         </div>
