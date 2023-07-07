@@ -198,7 +198,6 @@ export function App() {
         let input_array = input.split('');
         let operator = ['*', '+', '-', '/']; 
 
-        console.log('normal', input_array)
         if (input_array.includes('%')){
 
             for (let i = 0; i < input_array.length; i++) {
@@ -214,7 +213,6 @@ export function App() {
                     if(input_array[i] === operator[j]){
                         const getOperator = input_array[i];
                         if(getOperator == '*'){
-                            console.log('convertido', input_array)
                             return input_array.join('')
                         } else {
                             console.log(getOperator)
@@ -236,8 +234,7 @@ export function App() {
                 }
             }
         }
-    
-        console.log('convertido', input_array)
+     
         return input_array.join('')
     }
 
