@@ -3,7 +3,7 @@ import './footer.css'
 const Footer = () => {
     return (
         <footer className="footer">
-            <a href="">
+            <a href="https://github.com/VenturaDorantes/CalculatorReact" target='_blank'>
                 <svg width="30px" height="30px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 
                     <title>github [#142]</title>
