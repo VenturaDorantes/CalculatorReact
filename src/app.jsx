@@ -6,6 +6,7 @@ import IconMoon from './components/icons/icon/IconMoon';
 import Display from './components/display/Display';
 import Keys from './keys.json'
 import Key from './components/key/Key'
+import Footer from './components/footer/Footer';
 
 export function App() {
 
@@ -254,6 +255,7 @@ export function App() {
                     functionKey={ functionKey }
                 />
             </div>
+            <Footer />
         </div>
     ) 
 }

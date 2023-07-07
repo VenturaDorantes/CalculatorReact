@@ -13,15 +13,12 @@
     --txt-white: white;
     --btn-shadow: #ffffff33;
     --bd-btnIconDesactive: #6C757D;
-    --bd-btnIconActive: #ffffff;
-    /* --bg-black: white;
-    --bd-keys: #F8F9FA; 
-    --txt-white: black;
-    --btn-shadow: #00000033; */
+    --bd-btnIconActive: #ffffff; 
 }
 
 .app {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
