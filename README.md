@@ -2,8 +2,8 @@
 
 ## Mode Dark
 
-![Alt text](/public/image-1.png)
+![Alt text](image-1.png)
 
 ## Mode Light
 
-![Alt text](/public/image-2.png)
+![Alt text](image-2.png)
