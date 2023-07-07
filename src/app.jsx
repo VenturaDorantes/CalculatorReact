@@ -72,8 +72,8 @@ export function App() {
     }
 
     const [ input, setInput ] = useState('')
-    const [ displayInput, setDisplayInput ] = useState('5 <span class="operator">+</span> 5')
-    const [ displayOutput, setDisplayOutput ] = useState('25')
+    const [ displayInput, setDisplayInput ] = useState('')
+    const [ displayOutput, setDisplayOutput ] = useState('')
 
     const functionKey = (nameKey) => {
 
@@ -87,6 +87,35 @@ export function App() {
                 setInput(input.slice(0, -1))
                 setDisplayInput(cleanInput(input.slice(0, -1)))
                 break
+            case '=':
+                let result;
+                try {
+                    result=eval(perpareInput(input))
+                } catch(error) {
+                    setDisplayInput('')
+                    setDisplayOutput('Syntax Error')
+                }
+                setDisplayOutput(cleanOutput(result))
+                break
+            case 'brackets':
+                let inputBracket
+                if (input.indexOf('(') == -1 || 
+                    input.indexOf(')') != -1 && 
+                    input.indexOf(')') != -1 && 
+                    input.lastIndexOf('(') < input.lastIndexOf(')')) {
+                    setInput(input + '(')
+                    inputBracket = input + '('
+                } else if (input.indexOf('(') != -1 && 
+                            input.indexOf(')') == -1 ||
+                            input.indexOf('(') != -1 &&
+                            input.indexOf(')') != -1 &&
+                            input.lastIndexOf('(') > input.lastIndexOf(')')
+                ) {
+                    setInput(input + ')')
+                    inputBracket = input + ')'
+                }
+                setDisplayInput(cleanInput(inputBracket))
+                break
             default:
                 if (validateInput(nameKey)){
                     setInput(input + nameKey)
@@ -96,8 +125,8 @@ export function App() {
         }
     }
 
-    const cleanInput = (input) => {
-        let input_array = input.split('');
+    const cleanInput = (inputValue) => {
+        let input_array = inputValue.split('');
         let input_array_length = input_array.length;
 
         // Cambiando agregando un span en caso de precionar un boton del operador
@@ -122,6 +151,29 @@ export function App() {
         return <>{input}</>
     }
 
+    const cleanOutput = (output) => {
+        let output_string = output.toString();
+        let decimal = output_string.split('.')[1];
+        output_string = output_string.split('.')[0];
+
+        let output_array = output_string.split('');
+
+        if(output_array.length > 3) {
+            if (!(output_array[0] == '-' && output_array.length === 4)) {
+                for (let i = output_array.length - 3; i > 0; i -= 3) {
+                    output_array.splice(i, 0, ',');
+                }
+            } 
+        }
+
+        if(decimal) {
+            output_array.push('.');
+            output_array.push(decimal);
+        }
+
+        return output_array.join('')
+    }
+
     // funcion para no poder agregar puntos y operadores despues de otro
     const validateInput = (value) => {
         let last_input = input.slice(-1);
@@ -140,6 +192,53 @@ export function App() {
         }
         
         return true;
+    }
+
+    const perpareInput = (inputValue) => {
+        let input_array = input.split('');
+        let operator = ['*', '+', '-', '/']; 
+
+        console.log('normal', input_array)
+        if (input_array.includes('%')){
+
+            for (let i = 0; i < input_array.length; i++) {
+                if(input_array[i] === '%'){
+                    input_array[i] = "/100"
+                }
+            }
+        
+            for (let i = input_array.length; i > 0; i--) {
+       
+                for (let j = 0; j < operator.length; j++){
+    
+                    if(input_array[i] === operator[j]){
+                        const getOperator = input_array[i];
+                        if(getOperator == '*'){
+                            console.log('convertido', input_array)
+                            return input_array.join('')
+                        } else {
+                            console.log(getOperator)
+                            const getNumberPercent = input_array.splice(i + 1)
+                            const getOperationPercent = input_array.slice(0, i);
+        
+                            const operationPercent = eval(getOperationPercent.join(''))
+                            const numberPercent = eval(getNumberPercent.join(''))
+        
+                            const resultOperation = operationPercent * numberPercent;
+        
+                            const resultFinally = eval(operationPercent + getOperator + resultOperation)
+                            console.log('operation', operationPercent + getOperator + resultOperation)
+                            console.log('resultFinally', resultFinally)
+                            return resultFinally
+                        }
+                        
+                    }
+                }
+            }
+        }
+    
+        console.log('convertido', input_array)
+        return input_array.join('')
     }
 
     return(
